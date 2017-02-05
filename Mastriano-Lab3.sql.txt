@@ -1,0 +1,48 @@
+select ordNumber, totalUSD 
+	from Orders
+    order by ordNumber ASC;
+
+select name, city 
+	from Agents 
+    where name = 'Smith'
+    order by aid ASC;
+
+select pid, name, priceUSD 
+	from Products 
+    where quantity > 200100
+    order by pid ASC;
+    
+select name, city
+	from Customers
+    where city = 'Duluth'
+    order by name ASC;
+    
+select name
+	from Agents
+    where city not in ('New York', 'Duluth')
+    order by name ASC;
+    
+select *
+	from Products
+    where city not in ('Dallas', 'Duluth')
+    	and priceUSD >= 1
+    order by pid ASC;
+    
+
+select *
+	from Orders
+    where month = 'Feb'
+    	or month = 'May'
+    order by ordNumber ASC;
+    
+select *
+	from Orders
+    where month = 'Feb'
+    	and totalUSD >= 600
+    order by ordNumber ASC;
+    
+select *
+	from Orders
+    where cid = 'C005'
+    order by ordNumber ASC;
+    
