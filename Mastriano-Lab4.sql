@@ -1,4 +1,3 @@
-1)
 select city
 from agents
 where aid in (select aid
@@ -26,12 +25,15 @@ where cid not in (select distinct cid
                  )
 order by cid ASC;
 
-select distinct cid
-from orders
-where cid in(select cid
-             from orders
-             where pid in ('po1', 'p07')
-             )
+select distinct cid, name 
+from customers
+where cid in (select cid from orders
+      	      where pid = 'p07'
+    	        and cid in(select cid
+                           from orders
+			   where pid = 'p01'
+                          )
+    	     )
 order by cid ASC;
 
 select distinct pid
