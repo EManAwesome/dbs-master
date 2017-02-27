@@ -1,3 +1,4 @@
+--Query 1
 select city
 from agents
 where aid in (select aid
@@ -6,6 +7,7 @@ where aid in (select aid
               )
 order by city ASC;
 
+--Query 2
 select distinct pid
 from orders
 where aid in (select aid
@@ -17,6 +19,7 @@ where aid in (select aid
               )
 order by pid DESC;
 
+--Query 3
 select cid, name
 from customers
 where cid not in (select distinct cid
@@ -25,6 +28,7 @@ where cid not in (select distinct cid
                  )
 order by cid ASC;
 
+--Query 4
 select distinct cid, name 
 from customers
 where cid in (select cid from orders
@@ -36,6 +40,7 @@ where cid in (select cid from orders
     	     )
 order by cid ASC;
 
+--Query 5
 select distinct pid
 from orders
 where cid not in(select cid
@@ -43,7 +48,8 @@ where cid not in(select cid
                  where aid = 'a08'
                  )
 order by pid DESC;
-               
+
+--Query 6               
 select name, discount, city
 from customers
 where cid in(select cid
@@ -55,6 +61,7 @@ where cid in(select cid
              )
 order by name ASC;
 
+--Query 7
 select *
 from customers
 where discount in(select discount
